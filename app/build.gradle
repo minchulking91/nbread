@@ -1,0 +1,73 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion Configs.compileSdkVersion
+    defaultConfig {
+        applicationId "kr.co.sleeptimegrt.nbread"
+        minSdkVersion Configs.minSdkVersion
+        targetSdkVersion Configs.targetSdkVersion
+        versionCode Configs.versionCode
+        versionName Configs.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation Deps.kotlin_stdlib
+    implementation Deps.support_appcompat_v7
+    implementation "com.android.support:design:${Versions.support_lib}"
+    implementation Deps.constraint_layout
+
+    implementation Deps.rxjava
+    implementation Deps.rxkotlin
+    implementation Deps.guava
+    implementation Deps.gson
+
+    //dagger
+    implementation Deps.dagger
+    implementation Deps.dagger_android
+    implementation Deps.dagger_android_support
+    kapt Deps.dagger_android_processor
+    kapt Deps.dagger_compiler
+
+    //room
+    implementation Deps.android_room_runtime
+    kapt Deps.android_room_compiler
+
+    //arch
+    implementation Deps.android_arch
+    kapt Deps.android_arch_compiler
+
+    //test
+    testImplementation Deps.kotlin_stdlib
+    testImplementation Deps.junit
+    testImplementation Deps.android_arch_room_test
+
+    testImplementation "org.jetbrains.kotlin:kotlin-test-junit:${Versions.kotlin_version}"
+    androidTestImplementation Deps.junit
+    androidTestImplementation Deps.android_arch_test
+    androidTestImplementation "com.android.support.test:rules:${Versions.runner}"
+    androidTestImplementation "com.android.support:support-annotations:${Versions.support_lib}"
+    androidTestImplementation Deps.runner
+    androidTestImplementation Deps.espresso
+    androidTestImplementation "org.mockito:mockito-core:2.9.0"
+    androidTestImplementation "org.mockito:mockito-android:2.9.0"
+
+}
