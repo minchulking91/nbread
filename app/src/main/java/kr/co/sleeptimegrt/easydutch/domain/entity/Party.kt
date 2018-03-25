@@ -9,6 +9,6 @@ import org.joda.time.LocalDate
 data class Party(
         var name: String = "",
         val createdAt: DateTime,
-        var partyAt: LocalDate,
+        var partyAt: LocalDate? = null,
         val items: MutableList<Item> = mutableListOf()
 )
