@@ -13,6 +13,7 @@ object Versions {
     val guava: String = "24.0-android"
     val arch: String = "1.1.0"
     val room: String = "1.0.0"
+    val jodaTime: String = "2.9.9"
 }
 
 object Paths {
@@ -21,6 +22,7 @@ object Paths {
 }
 
 object Deps {
+    val jodaTime = "joda-time:joda-time:${Versions.jodaTime}"
     //kotlin
     val kotlin_stdlib = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin_version}"
 
@@ -60,7 +62,7 @@ object Deps {
     val junit = "junit:junit:${Versions.junit}"
     val runner = "com.android.support.test:runner:${Versions.runner}"
     val espresso = "com.android.support.test.espresso:espresso-core:${Versions.espresso}"
-    val android_arch_test  = "android.arch.core:core-testing:${Versions.arch}"
+    val android_arch_test = "android.arch.core:core-testing:${Versions.arch}"
     val android_arch_room_test = "android.arch.persistence.room:testing:${Versions.room}"
 }
 

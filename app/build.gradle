@@ -40,6 +40,8 @@ dependencies {
     implementation Deps.guava
     implementation Deps.gson
 
+    implementation Deps.jodaTime
+
     //dagger
     implementation Deps.dagger
     implementation Deps.dagger_android

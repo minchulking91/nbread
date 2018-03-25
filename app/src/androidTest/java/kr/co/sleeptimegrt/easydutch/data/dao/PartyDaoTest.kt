@@ -15,14 +15,14 @@ import org.junit.runner.RunWith
  */
 @RunWith(AndroidJUnit4::class)
 class PartyDaoTest : DbTest() {
-
-    @Test
-    @Throws(Exception::class)
-    internal fun insertAndRead() {
-        val partyModel = TestUtil.createParty("TestParty")
-        val seq = db.partyDao().insertParty(partyModel)
-        val loaded = LiveDataTestUtil.getValue(db.partyDao().loadBySeq(seq))
-        assertThat(loaded, notNullValue())
-        assertThat(loaded.partyName, `is`("TestParty"))
-    }
+//
+//    @Test
+//    @Throws(Exception::class)
+//    internal fun insertAndRead() {
+//        val partyModel = TestUtil.createParty("TestParty")
+//        val seq = db.partyDao().insertParty(partyModel)
+//        val loaded = LiveDataTestUtil.getValue(db.partyDao().loadBySeq(seq))
+//        assertThat(loaded, notNullValue())
+//        assertThat(loaded.partyName, `is`("TestParty"))
+//    }
 }

@@ -1,9 +1,14 @@
 package kr.co.sleeptimegrt.easydutch.domain.entity
 
+import org.joda.time.DateTime
+import org.joda.time.LocalDate
+
 /**
  * Created by minchulkim on 2018-03-04.
  */
 data class Party(
-        val seq:Int,
-        val name:String
+        var name: String = "",
+        val createdAt: DateTime,
+        var partyAt: LocalDate,
+        val items: MutableList<Item> = mutableListOf()
 )

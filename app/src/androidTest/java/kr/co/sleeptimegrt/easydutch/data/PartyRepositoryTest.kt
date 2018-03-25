@@ -2,7 +2,7 @@ package kr.co.sleeptimegrt.easydutch.data
 
 import android.support.test.runner.AndroidJUnit4
 import kr.co.sleeptimegrt.easydutch.data.db.DbTest
-import kr.co.sleeptimegrt.easydutch.data.repository.PartyDataRepository
+import kr.co.sleeptimegrt.easydutch.data.repository.PartyRepository
 import kr.co.sleeptimegrt.easydutch.domain.AppExecutors
 import kr.co.sleeptimegrt.easydutch.domain.Status
 import org.junit.Test
@@ -18,7 +18,7 @@ class PartyRepositoryTest : DbTest() {
     @Test
     fun createParty() {
         val executors = AppExecutors(Executors.newSingleThreadExecutor(), Executors.newFixedThreadPool(3), AppExecutors.MainThreadExecutor())
-        val partyRepository = PartyDataRepository(executors, db, db.partyDao(), db.memberDao(), db.itemDao(), db.subItemDao())
+        val partyRepository = PartyRepository(executors)
         val newParty = partyRepository.createParty("TestParty", emptyList()).blockingGet()
         val partyData = newParty.data
         assert(newParty.status == Status.SUCCESS)
